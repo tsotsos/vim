@@ -13,4 +13,9 @@ augroup vimrc-wrapping
 augroup END
 set autoread
 
+"" TeX
+autocmd BufRead,BufNewFile *.cls set filetype=tex
+autocmd BufRead,BufNewFile *.tex set filetype=tex
+autocmd BufRead,BufNewFile *.tex call s:setupWrapping()
+autocmd! BufWritePost *.tex normal ,ll
 

@@ -5,6 +5,10 @@ scriptencoding utf-8  " ensure utf-8
 set bomb
 set binary
 set ttyfast
+"" SpellCheck
+set spelllang=en,el
+set spellfile=spell/utf-8.add
+
 "" Tabs. May be overriten by autocmd rules
 set tabstop=4
 set softtabstop=0
@@ -27,7 +31,7 @@ set smartcase
 "" Directories for swp files
 set nobackup
 set noswapfile
-
+set nofoldenable    " disable folding
 set fileformats=unix,dos,mac
 syntax on
 set ruler
@@ -69,3 +73,8 @@ nnoremap <C-Right> :tabnext<CR>
 nnoremap <C-j> :tabprevious<CR>
 nnoremap <C-k> :tabnext<CR>
 
+" Compile Tex
+let fts = ['cls', 'tex' , 'sty']
+if index(fts, &filetype) == -1
+        nnoremap <F5> :VimtexCompile<CR>
+endif
