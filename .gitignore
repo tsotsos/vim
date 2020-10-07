@@ -1,4 +1,6 @@
+.netrwhist
 autoload/
 bundle/
 plugged/
 sessions/
+spell/
