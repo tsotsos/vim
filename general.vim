@@ -9,11 +9,12 @@ set ttyfast
 set spelllang=en,el
 set spellfile=spell/utf-8.add
 
-"" Tabs. May be overriten by autocmd rules
+"" Tabs. May be overwritten by autocmd rules
 set tabstop=4
 set softtabstop=0
 set shiftwidth=4
 set expandtab
+set mouse=a
 set mousemodel=popup
 set guioptions=egmrti
 set gfn=Monospace\ 14
@@ -67,11 +68,17 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Remap Buffers navigation
+nnoremap <C-Left> :bp<CR>
+nnoremap <C-Right> :bn<CR>
+nnoremap <C-j> :bp<CR>
+nnoremap <C-k> :bn<CR>
+
 " Remap Tabs navigation
-nnoremap <C-Left> :tabprevious<CR>
-nnoremap <C-Right> :tabnext<CR>
-nnoremap <C-j> :tabprevious<CR>
-nnoremap <C-k> :tabnext<CR>
+noremap <C-Up> :tabnext<CR>
+noremap <C-Down> :tabprevious<CR>
+noremap <C-h> :tabprevious<CR>
+noremap <C-l> :tabnext<CR>
 
 " Compile Tex
 let fts = ['cls', 'tex' , 'sty']
