@@ -51,7 +51,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
-nnoremap <silent> * :call <SID>show_documentation()<CR>
+nnoremap <silent> ~ :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -136,3 +136,9 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+" Remap for do codeAction of selected region
+function! s:cocActionsOpenFromSelected() abort
+  execute 'CocCommand actions.open'
+endfunction
+nnoremap <silent> ` :call <SID>cocActionsOpenFromSelected()<CR>
