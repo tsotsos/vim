@@ -1,14 +1,16 @@
 "" Encoding
 set encoding=utf-8
 set fileencoding=utf-8
-scriptencoding utf-8  " ensure utf-8
+scriptencoding utf-8
 set bomb
 set binary
 set ttyfast
+
 "" SpellCheck
 set spelllang=en,el
 set spellfile=spell/utf-8.add
-" Comments modification
+
+"" Comments modification
 hi Comment guifg=#ABCDEF
 
 "" Tabs. May be overwritten by autocmd rules
@@ -19,34 +21,24 @@ set expandtab
 set mouse=a
 set mousemodel=popup
 set guioptions=egmrti
-set gfn=Monospace\ 14
 set showmatch
 set textwidth=80
-"" Map leader to ,
+
+"" Change leader
 let mapleader=','
-"" Enable hidden buffers
-" set hidden
+
 "" Searching
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+
 "" Directories for swp files
 set nobackup
 set noswapfile
-set nofoldenable    " disable folding
 set fileformats=unix,dos,mac
-syntax on
-set ruler
-set number "show line numbers
-set numberwidth=4 "Line number max width
-set list listchars=tab:\⟶\ ,trail:·,space:\  "change whitespace symbols
-set cursorline "highlights current cursorline
-:hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-:hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-:nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 
-"" true colors
+"" True Colors
 execute "set t_8f=\e[38;2;%lu;%lu;%lum"
 execute "set t_8b=\e[48;2;%lu;%lu;%lum"
 
@@ -82,20 +74,16 @@ noremap <C-Down> :tabprevious<CR>
 noremap <C-h> :tabprevious<CR>
 noremap <C-l> :tabnext<CR>
 
-" Compile Tex
-let fts = ['cls', 'tex' , 'sty']
-if index(fts, &filetype) == -1
-        nnoremap <F5> :VimtexCompile<CR>
-endif
+"" Other
+filetype plugin indent on    " required
+set nofoldenable    " disable folding
+syntax on
+set ruler
+set number "show line numbers
+set numberwidth=4 "Line number max width
+set list listchars=tab:\⟶\ ,trail:·,space:\  "change whitespace symbols
+set cursorline "highlights current cursorline
+:hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+:hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+:nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 
-" run :GoBuild or :GoTestCompile based on the go file
-function! s:build_go_files()
-  let l:file = expand('%')
-  if l:file =~# '^\f\+_test\.go$'
-    call go#test#Test(0, 1)
-  elseif l:file =~# '^\f\+\.go$'
-    call go#cmd#Build(0)
-  endif
-endfunction
-
-autocmd FileType go nmap <F5> :<C-u>call <SID>build_go_files()<CR>
