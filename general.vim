@@ -8,6 +8,8 @@ set ttyfast
 "" SpellCheck
 set spelllang=en,el
 set spellfile=spell/utf-8.add
+" Comments modification
+hi Comment guifg=#ABCDEF
 
 "" Tabs. May be overwritten by autocmd rules
 set tabstop=4
@@ -85,3 +87,15 @@ let fts = ['cls', 'tex' , 'sty']
 if index(fts, &filetype) == -1
         nnoremap <F5> :VimtexCompile<CR>
 endif
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go nmap <F5> :<C-u>call <SID>build_go_files()<CR>

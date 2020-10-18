@@ -1,5 +1,5 @@
 " Nvim as default
-" let g:vim_bootstrap_editor = "nvim"
+let g:vim_bootstrap_editor = "nvim"
 
 " GENERAL CONFIGTURATION
 source ~/.vim/general.vim "basic configuration for vim
@@ -40,7 +40,6 @@ let g:vimtex_compiler_latexmk = {
 Plug 'preservim/nerdtree'
 
 set updatetime=100 "update gitbar frequency
-nmap <F8> :TagbarToggle<CR> " map tagbar toggle
 
 " Airline
 Plug 'vim-airline/vim-airline' " Bar and more
@@ -83,7 +82,4 @@ nmap <F8> :TagbarToggle<CR>
 
 call plug#end()
 filetype plugin indent on    " required
-
 colorscheme dracula
-" Comments modification
-hi Comment guifg=#ABCDEF
