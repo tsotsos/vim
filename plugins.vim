@@ -8,16 +8,13 @@ call plug#begin('~/.vim/plugged')
     Plug 'dracula/vim' "ColorScheme
     Plug 'vim-airline/vim-airline' " Bar and more
     Plug 'vim-airline/vim-airline-themes' "Airline themes
-"" Go plugins
+    "" Programming helpers
+    Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } } "comments
+    "" Go plugins
     Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
     Plug 'mdempsky/gocode', {'rtp': 'nvim/'}
-
-"" Python Plugins
+    "" Python Plugins
     Plug 'klen/python-mode'
-    Plug 'davidhalter/jedi-vim'
-    Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' } " python docstring
-    let g:pydocstring_doq_path = '~/.local/bin/doq'
-    let g:pydocstring_formatter = 'google'
 
 call plug#end()
 
@@ -38,18 +35,7 @@ if &runtimepath =~ 'vim-airline'
     let g:airline_skip_empty_sections = 1
 endif
 
-"" Go configurations
-if &runtimepath =~ 'vim-go'
-    let g:go_fmt_command = "goimports" "Run goimports along gofmt on each save 
-    let g:go_auto_type_info = 1        "Gets signature/type info for object
-    let g:go_highlight_types = 1
-    let g:go_highlight_fields = 1
-    let g:go_highlight_functions = 1
-    let g:go_highlight_function_calls = 1
-    let g:go_highlight_extra_types = 1
-    let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
-    let g:go_metalinter_autosave = 1
-    let g:go_metalinter_autosave_enabled = ['vet', 'golint']
-    let g:go_metalinter_deadline = "5s"
+"" Programming languages customizations
+source ~/.vim/golang.vim
+source ~/.vim/python.vim
 
-endif
