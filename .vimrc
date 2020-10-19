@@ -20,9 +20,6 @@ let g:vim_bootstrap_editor = "nvim"
 "" Import General Rules
 source ~/.vim/general.vim
 
-"" Import functions
-source ~/.vim/functions.vim
-
 "" General Syntax Rules
 call GeneralSyntax()
 
