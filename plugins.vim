@@ -8,12 +8,20 @@ call plug#begin('~/.vim/plugged')
     Plug 'dracula/vim' "ColorScheme
     Plug 'vim-airline/vim-airline' " Bar and more
     Plug 'vim-airline/vim-airline-themes' "Airline themes
+    "" Comments
+    "+deactivated due to bug with linux version of vim-doge
+    "Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
+    "" Vim Session
+    Plug 'xolox/vim-misc'
+    Plug 'xolox/vim-session'
     "" Go plugins
     Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
     Plug 'mdempsky/gocode', {'rtp': 'nvim/'}
     "" Python Plugins
     Plug 'klen/python-mode'
     Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' } " Comments
+    "" C and C++
+    Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
 
 call plug#end()
 
@@ -32,6 +40,14 @@ if &runtimepath =~ 'vim-airline'
     let g:airline#extensions#branch#enabled = 1
     let g:airline#extensions#tagbar#enabled = 1
     let g:airline_skip_empty_sections = 1
+endif
+
+"" Session management
+if &runtimepath =~ 'vim-session'
+    let g:session_directory = "~/.vim/session"
+    let g:session_autoload = "no"
+    let g:session_autosave = "no"
+    let g:session_command_aliases = 1
 endif
 
 "" Languages customizations
