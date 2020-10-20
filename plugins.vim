@@ -8,13 +8,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'dracula/vim' "ColorScheme
     Plug 'vim-airline/vim-airline' " Bar and more
     Plug 'vim-airline/vim-airline-themes' "Airline themes
-    "" Programming helpers
-    Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } } "comments
     "" Go plugins
     Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
     Plug 'mdempsky/gocode', {'rtp': 'nvim/'}
     "" Python Plugins
     Plug 'klen/python-mode'
+    Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' } " Comments
 
 call plug#end()
 
@@ -35,7 +34,7 @@ if &runtimepath =~ 'vim-airline'
     let g:airline_skip_empty_sections = 1
 endif
 
-"" Programming languages customizations
+"" Languages customizations
 source ~/.vim/golang.vim
 source ~/.vim/python.vim
 
