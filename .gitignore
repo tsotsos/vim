@@ -4,3 +4,5 @@ bundle/
 plugged/
 sessions/
 spell/
+pack/
+custom.vim
