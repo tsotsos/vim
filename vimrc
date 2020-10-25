@@ -1,5 +1,7 @@
+let VIMDIR=$VIMDIR
+let PLUGDIR= VIMDIR.'/autoload/plug.vim'
 "" Install vim plug if not exists.
-let vimplug_exists=expand('~/.vim/autoload/plug.vim')
+let vimplug_exists=expand(PLUGDIR)
 let curl_exists=expand('curl')
 if !filereadable(vimplug_exists)
   if !executable(curl_exists)
@@ -18,13 +20,11 @@ endif
 let g:vim_bootstrap_editor = "nvim"
 
 "" Import General Rules
-source ~/.vim/general.vim
+source $VIMDIR/general.vim
 
 "" General Syntax Rules
-call GeneralSyntax()
-
+"call Rules()
 "" Import Plugins
-source ~/.vim/plugins.vim
-
-"" Theme
-colorscheme dracula
+source $VIMDIR/plugins.vim
+"" Customized themes etc.
+source $VIMDIR/custom.vim
