@@ -10,6 +10,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline-themes' "Airline themes
     "" Comments for programming languages
     Plug 'kkoomen/vim-doge', {'do': { -> doge#install() } }
+    "" Vim debugger
+    Plug 'puremourning/vimspector'
     "" Vim Session
     Plug 'xolox/vim-misc'
     Plug 'xolox/vim-session'
@@ -18,15 +20,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'mdempsky/gocode', {'rtp': 'nvim/'}
     "" Python Plugins
     Plug 'klen/python-mode'
-    Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' } " Comments
     "" C and C++
     Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
 
 call plug#end()
-
-"" Set Color theme
-" colorscheme dracula
-" set background=dark
 
 
 "" GitGutter customizations
@@ -54,6 +51,11 @@ if &runtimepath =~ 'vim-session'
     let g:session_command_aliases = 1
 endif
 
+"" Debugger
+if &runtimepath =~ 'vimspector'
+    let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-cpptools', 'CodeLLDB', 'netcoredbg', 'vscode-go', 'vscode-php-debug', 'debugger-for-chrome' ]
+    let g:vimspector_enable_mappings = 'HUMAN'
+endif
 "" Languages customizations
 source $VIMDIR/golang.vim
 source $VIMDIR/python.vim
