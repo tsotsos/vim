@@ -22,9 +22,10 @@ let g:vim_bootstrap_editor = "nvim"
 "" Import General Rules
 source $VIMDIR/general.vim
 
-"" General Syntax Rules
-"call Rules()
 "" Import Plugins
 source $VIMDIR/plugins.vim
+
 "" Customized themes etc.
-source $VIMDIR/custom.vim
+if filereadable(VIMDIR.'/custom.vim')
+    source $VIMDIR/custom.vim
+endif
