@@ -10,7 +10,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline-themes' "Airline themes
     "" Comments
     "+deactivated due to bug with linux version of vim-doge
-    "Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
+    Plug 'kkoomen/vim-doge', {'do': { -> doge#install() } }
     "" Vim Session
     Plug 'xolox/vim-misc'
     Plug 'xolox/vim-session'
@@ -24,6 +24,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
 
 call plug#end()
+
+"" Set Color theme
+" colorscheme dracula
+" set background=dark
+
 
 "" GitGutter customizations
 if &runtimepath =~ 'vim-gitgutter'

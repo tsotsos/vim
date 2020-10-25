@@ -11,7 +11,7 @@ set spelllang=en,el
 set spellfile=spell/utf-8.add
 
 "" Comments modification
-hi Comment guifg=#ABCDEF
+"hi Comment guifg=#abefb5
 
 "" Tabs. May be overwritten by autocmd rules
 set tabstop=4
@@ -76,7 +76,8 @@ noremap <C-l> :tabnext<CR>
 
 "" Other
 filetype plugin indent on    " required
-set nofoldenable    " disable folding
+"set nofoldenable    " disable folding
+set foldmethod=manual
 syntax on
 set ruler
 set number "show line numbers
@@ -96,19 +97,6 @@ if !exists('*s:setupWrapping')
     set textwidth=79
   endfunction
 endif
-
-function GeneralSyntax()
-	execute "set colorcolumn=" . join(range(81,335), ',')
-	let &colorcolumn="80,".join(range(120,999),",")
-	" Highlight trailing spaces
-	" http://vim.wikia.com/wiki/Highlight_unwanted_spaces
-	highlight ExtraWhitespace ctermbg=red guibg=#ff6961
-	match ExtraWhitespace /\s\+$/
-	autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-	autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-	autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-	autocmd BufWinLeave * call clearmatches()
-endfunction
 
 function Plugin_loaded(plugin)
   if isdirectory(g:plug_home . "/" . a:plugin . ".vim")
