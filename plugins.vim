@@ -8,8 +8,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'dracula/vim' "ColorScheme
     Plug 'vim-airline/vim-airline' " Bar and more
     Plug 'vim-airline/vim-airline-themes' "Airline themes
-    "" Comments
-    "+deactivated due to bug with linux version of vim-doge
+    "" Comments for programming languages
     Plug 'kkoomen/vim-doge', {'do': { -> doge#install() } }
     "" Vim Session
     Plug 'xolox/vim-misc'
@@ -56,6 +55,6 @@ if &runtimepath =~ 'vim-session'
 endif
 
 "" Languages customizations
-source ~/.vim/golang.vim
-source ~/.vim/python.vim
+source $VIMDIR/golang.vim
+source $VIMDIR/python.vim
 
