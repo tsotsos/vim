@@ -10,8 +10,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline-themes' "Airline themes
     "" Comments for programming languages
     Plug 'kkoomen/vim-doge', {'do': { -> doge#install() } }
-    "" Vim debugger
+    "" Vim debugger and Autocomplete
     Plug 'puremourning/vimspector'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'} 
     "" Vim Session
     Plug 'xolox/vim-misc'
     Plug 'xolox/vim-session'
@@ -56,6 +57,40 @@ if &runtimepath =~ 'vimspector'
     let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-cpptools', 'CodeLLDB', 'netcoredbg', 'vscode-go', 'vscode-php-debug', 'debugger-for-chrome' ]
     let g:vimspector_enable_mappings = 'HUMAN'
 endif
+
+if &runtimepath =~ 'coc.nvim'
+    source $VIMDIR/coc.config.vim " imports custom configuration from coc.config.vim
+    "Spellcheck
+    vmap <leader>a <Plug>(coc-codeaction-selected)
+    nmap <leader>a <Plug>(coc-codeaction-selected)
+    let g:coc_global_extensions = [
+      \'coc-markdownlint',
+      \'coc-highlight',
+      \'coc-go',
+      \'coc-python',
+      \'coc-explorer',
+      \'coc-cmake', 
+      \'coc-css',
+      \'coc-lists',
+      \'coc-lsp-wl',
+      \'coc-phpls',
+      \'coc-xml',
+      \'coc-pairs',
+      \'coc-yaml',
+      \'coc-json',
+      \'coc-actions',
+      \'coc-clangd',
+      \'coc-emmet',
+      \'coc-java',
+      \'coc-perl',
+      \'coc-sql',
+      \'coc-texlab',
+      \'coc-cfn-lint',
+      \'coc-jedi',
+      \'coc-git'
+      \]
+endif
+
 "" Languages customizations
 source $VIMDIR/golang.vim
 source $VIMDIR/python.vim
