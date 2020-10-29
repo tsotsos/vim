@@ -25,6 +25,9 @@ source $VIMDIR/general.vim
 "" Import Plugins
 source $VIMDIR/plugins.vim
 
+"" Views Customization
+source $VIMDIR/views.vim
+
 "" Customized themes etc.
 if filereadable(VIMDIR.'/custom.vim')
     source $VIMDIR/custom.vim

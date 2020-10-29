@@ -8,19 +8,28 @@ call plug#begin('~/.vim/plugged')
     Plug 'dracula/vim' "ColorScheme
     Plug 'vim-airline/vim-airline' " Bar and more
     Plug 'vim-airline/vim-airline-themes' "Airline themes
+
     "" Comments for programming languages
     Plug 'kkoomen/vim-doge', {'do': { -> doge#install() } }
+
     "" Vim debugger and Autocomplete
     Plug 'puremourning/vimspector'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'} 
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+    "" Tag bar and files tree
+    Plug 'majutsushi/tagbar'
+
     "" Vim Session
     Plug 'xolox/vim-misc'
     Plug 'xolox/vim-session'
+
     "" Go plugins
     Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
     Plug 'mdempsky/gocode', {'rtp': 'nvim/'}
+
     "" Python Plugins
     Plug 'klen/python-mode'
+
     "" C and C++
     Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
 

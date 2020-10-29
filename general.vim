@@ -37,6 +37,7 @@ set smartcase
 set nobackup
 set noswapfile
 set fileformats=unix,dos,mac
+set autochdir "change to current dir automatically.
 
 "" True Colors
 execute "set t_8f=\e[38;2;%lu;%lu;%lum"
