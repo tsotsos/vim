@@ -13,8 +13,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'kkoomen/vim-doge', {'do': { -> doge#install() } }
 
     "" Vim debugger and Autocomplete
-    Plug 'puremourning/vimspector'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'puremourning/vimspector'
 
     "" Tag bar and files tree
     Plug 'majutsushi/tagbar'
@@ -34,6 +34,28 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
 
 call plug#end()
+
+" Debugger startup
+nmap <S-R>	<Plug>EasyDebuggerInspect
+nmap <S-W>	<Plug>EasyDebuggerWebInspect
+nmap <S-E>	<Plug>EasyDebuggerExit
+" pause
+nmap <F6>	<Plug>EasyDebuggerPause
+tmap <F6>	<Plug>EasyDebuggerPause
+" stepout
+nmap <F7>	<Plug>EasyDebuggerStepOut
+tmap <F7>	<Plug>EasyDebuggerStepOut
+" stepinto
+nmap <F8>   <Plug>EasyDebuggerStepIn
+tmap <F8>   <Plug>EasyDebuggerStepIn
+" next
+nmap <F9>	<Plug>EasyDebuggerNext
+tmap <F9>	<Plug>EasyDebuggerNext
+" Continue
+nmap <F10>	<Plug>EasyDebuggerContinue
+tmap <F10>	<Plug>EasyDebuggerContinue
+" break or delete break
+nmap <F12>	<Plug>EasyDebuggerSetBreakPoint
 
 
 "" GitGutter customizations
@@ -104,3 +126,4 @@ endif
 source $VIMDIR/golang.vim
 source $VIMDIR/python.vim
 
+packadd termdebug
