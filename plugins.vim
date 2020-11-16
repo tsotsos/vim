@@ -32,7 +32,7 @@ call plug#begin('~/.vim/plugged')
 
     "" C and C++
     Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
-
+    Plug 'vivien/vim-linux-coding-style' " linux kernel coding style
 call plug#end()
 
 " Debugger startup
@@ -87,6 +87,11 @@ endif
 if &runtimepath =~ 'vimspector'
     let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-cpptools', 'CodeLLDB', 'netcoredbg', 'vscode-go', 'vscode-php-debug', 'debugger-for-chrome' ]
     let g:vimspector_enable_mappings = 'HUMAN'
+endif
+
+"" Linux coding style
+if &runtimepath =~ 'vim-linux-coding-style'
+    let g:linuxsty_patterns = [ "/usr/src/", "/linux", 'linux' ]
 endif
 
 if &runtimepath =~ 'coc.nvim'
