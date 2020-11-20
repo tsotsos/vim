@@ -28,7 +28,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'mdempsky/gocode', {'rtp': 'nvim/'}
 
     "" Python Plugins
-    Plug 'klen/python-mode'
+    Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
     "" C and C++
     Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
